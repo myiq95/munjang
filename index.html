@@ -4,15 +4,22 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f5f1e8"><meta name="description" content="나만의 오프라인 독서 서재">
 <link rel="manifest" href="./manifest-v13.webmanifest"><link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon-v13.png"><link rel="icon" type="image/png" sizes="192x192" href="./icon-192-v13.png"><link rel="icon" type="image/svg+xml" href="./icon-v13.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
 <title>문장 — 나만의 독서 서재</title>
 <style>
+/* FIX: 명조체/볼드체를 위한 웹폰트 로드 및 강제 적용 */
+.article strong, .article b { font-weight:700 !important; }
+.article h1, .article h2 { font-weight:700 !important; font-synthesis: weight; }
+
 :root{color-scheme:light;--bg:#f5f1e8;--paper:#fffdf8;--ink:#292b29;--muted:#85877f;--line:#e5e0d5;--accent:#355b4b;--accent2:#dce8dc;--shadow:0 16px 50px #332b1710;--reader:#fffdf8}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:3px}.app{min-height:100dvh;padding:0 0 100px}.top{max-width:1180px;margin:auto;padding:26px 28px 12px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;gap:11px;align-items:center}.brandmark{width:38px;height:38px;border-radius:13px;background:var(--accent);color:white;display:grid;place-items:center;font-family:Georgia,serif;font-size:22px}.brandname{font-family:Georgia,"Noto Serif KR",serif;font-size:23px;letter-spacing:-.8px;font-weight:700}.brandtag{font-size:11px;color:var(--muted);letter-spacing:1.8px;margin-top:2px}.topright{display:flex;gap:8px}.iconbtn{width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:var(--paper);color:var(--ink);display:grid;place-items:center;font-size:18px}.main{max-width:1180px;margin:auto;padding:18px 28px}.welcome{padding:34px 0 26px;display:flex;align-items:flex-end;justify-content:space-between;gap:24px}.eyebrow{font-size:11px;letter-spacing:2.3px;color:var(--accent);font-weight:700;text-transform:uppercase}.welcome h1{font-family:Georgia,"Noto Serif KR",serif;font-size:clamp(30px,4vw,47px);font-weight:500;letter-spacing:-1.8px;line-height:1.22;margin:12px 0}.welcome p{color:var(--muted);margin:0;line-height:1.7;font-size:14px}.actions{display:flex;gap:9px;flex-wrap:wrap}.btn{border:1px solid var(--line);border-radius:13px;padding:12px 16px;background:var(--paper);color:var(--ink);font-weight:600;font-size:13px;display:inline-flex;align-items:center;gap:8px}.btn.primary{background:var(--accent);color:white;border-color:var(--accent)}.btn.soft{background:var(--accent2);border-color:transparent;color:var(--accent)}.sectionhead{display:flex;align-items:center;justify-content:space-between;margin:28px 0 16px}.sectionhead h2{font-family:Georgia,"Noto Serif KR",serif;font-size:22px;font-weight:500;margin:0}.count{color:var(--muted);font-size:12px}.shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:17px}.book{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:var(--shadow);min-width:0;transition:transform .2s}.book:hover{transform:translateY(-3px)}.cover{height:164px;border-radius:12px;padding:20px;display:flex;flex-direction:column;justify-content:space-between;color:#f9f6ee;overflow:hidden;position:relative;background:linear-gradient(145deg,#466b5a,#203f35)}.cover:after{content:"";position:absolute;width:150px;height:150px;border:1px solid #ffffff38;border-radius:50%;right:-45px;bottom:-55px;box-shadow:0 0 0 18px #ffffff0b,0 0 0 38px #ffffff08}.cover .mini{font-size:10px;letter-spacing:2px;opacity:.8}.cover .ctitle{font-family:Georgia,"Noto Serif KR",serif;font-size:23px;line-height:1.3;max-width:95%;z-index:1;overflow-wrap:anywhere}.cover .cfoot{font-size:10px;letter-spacing:1px;opacity:.75}.book:nth-child(4n+2) .cover{background:linear-gradient(145deg,#9b7357,#62432f)}.book:nth-child(4n+3) .cover{background:linear-gradient(145deg,#68718e,#353d5a)}.book:nth-child(4n+4) .cover{background:linear-gradient(145deg,#a56b75,#653e4a)}.bookinfo{padding:13px 3px 2px}.booktitle{font-weight:700;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.bookmeta{font-size:11px;color:var(--muted);margin-top:6px}.progress{height:3px;background:var(--line);border-radius:5px;margin:13px 0 12px;overflow:hidden}.progress span{height:100%;display:block;background:var(--accent);border-radius:5px}.bookfoot{display:flex;justify-content:space-between;align-items:center;gap:8px}.readbtn{border:0;background:transparent;color:var(--accent);font-size:12px;font-weight:700;padding:5px 0}.deletebtn{border:0;background:transparent;color:var(--muted);font-size:16px;padding:4px 7px}.empty{border:1px dashed #d5d0c5;border-radius:18px;text-align:center;padding:48px 18px;color:var(--muted);grid-column:1/-1}.empty .symbol{font-size:34px;color:var(--accent);margin-bottom:10px}.empty strong{display:block;color:var(--ink);font-family:Georgia,serif;font-size:19px;margin-bottom:7px}.empty p{font-size:13px;line-height:1.7}.privacy{font-size:11px;color:var(--muted);margin-top:26px;display:flex;align-items:center;gap:7px}.reader{display:none;position:fixed;inset:0;z-index:20;background:var(--reader);overflow:auto}.reader.open{display:block}.readerhead{position:sticky;top:0;z-index:4;background:color-mix(in srgb,var(--reader) 92%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:13px max(18px,calc((100vw - 920px)/2));gap:12px}.readerbook{min-width:0}.readerbook strong{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:13px}.readerbook small{display:block;color:var(--muted);font-size:10px;margin-top:3px}.readercontrols{display:flex;gap:7px}.readercontrols .iconbtn{width:38px;height:38px;background:var(--reader)}.readlayout{max-width:940px;margin:auto;display:grid;grid-template-columns:190px minmax(0,650px);gap:52px;padding:42px 24px 120px}.toc{position:sticky;top:90px;align-self:start;max-height:calc(100dvh - 120px);overflow:auto;padding-right:5px;min-width:0}.toc h3{font-size:10px;letter-spacing:2px;color:var(--muted);margin:0 0 14px}.toc button{display:block;text-align:left;border:0;background:transparent;color:var(--muted);font-size:12px;line-height:1.6;padding:8px 9px;border-left:2px solid transparent;width:100%;overflow-wrap:anywhere}.toc button.active{color:var(--accent);border-left-color:var(--accent);font-weight:700}.article{font-family:"Noto Serif KR","AppleMyungjo",Batang,serif;font-size:18px;line-height:1.95;letter-spacing:0;overflow-wrap:anywhere;min-width:0}.article h1{font-size:1.7em;line-height:1.4;font-weight:500;margin:0 0 12px;letter-spacing:-.04em}.article .byline{font-family:-apple-system,sans-serif;font-size:12px;color:var(--muted);margin-bottom:48px}.article h2{font-size:1.17em;font-weight:600;margin:2.6em 0 1em;line-height:1.55;scroll-margin-top:100px}.article p{margin:0 0 1.15em;text-indent:1em}.article p.noindent{text-indent:0}.article img{max-width:100%}
 /* v12 modern, eye-comfortable reading typography */
 .article{font-family:"Noto Serif KR","AppleMyungjo","Batang",serif;font-size:18px;line-height:2.02;letter-spacing:.005em;color:#30312e;word-break:normal;overflow-wrap:anywhere;max-width:100%;font-kerning:normal;-webkit-font-smoothing:antialiased}
-.article h1{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;font-size:clamp(25px,4.8vw,34px);font-weight:650;line-height:1.45;letter-spacing:-.055em;color:var(--ink);margin:0 0 14px}
+.article h1{font-family:"Noto Serif KR","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;font-size:clamp(25px,4.8vw,34px);font-weight:700;line-height:1.45;letter-spacing:-.055em;color:var(--ink);margin:0 0 14px}
 .article .byline{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;font-size:10px;letter-spacing:1.15px;line-height:1.8;color:var(--muted);margin:0 0 56px;padding-bottom:18px;border-bottom:1px solid var(--line)}
-.article h2{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;font-size:1.12em;font-weight:650;letter-spacing:-.035em;line-height:1.55;margin:3.2em 0 1.35em;padding-top:.3em;color:var(--accent);scroll-margin-top:100px}
+.article h2{font-family:"Noto Sans KR","Noto Serif KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;font-size:1.12em;font-weight:700;letter-spacing:-.035em;line-height:1.55;margin:3.2em 0 1.35em;padding-top:.3em;color:var(--accent);scroll-margin-top:100px}
 .article p{font-size:1em;line-height:2.02;margin:0 0 1.45em;text-indent:.85em;letter-spacing:.005em}
 .article p.noindent,.article p.dialogue{text-indent:0}
 .article p.dialogue{position:relative;margin:1.15em 0 1.45em;padding:.8em 1.05em .85em 1.15em;border-left:3px solid #a6b7a4;border-radius:0 10px 10px 0;background:color-mix(in srgb,var(--accent2) 40%,var(--reader));color:var(--ink);font-size:.96em;line-height:1.9}
@@ -186,10 +193,10 @@ function renderText(b){
   // A whole blank-line-delimited block that is a chapter heading stays a heading.
   if(heading.test(text)&&text.length<100){out.push(`<h2>${esc(text)}</h2>`);return;}
   // Standalone quoted dialogue is visually separated from narration.
-  if(dialogue.test(text)&&text.length<500){out.push(`<p class="dialogue">${esc(text)}</p>`);return;}
+  if(dialogue.test(text)&&text.length<500){out.push(`<p class="dialogue">${formatInline(esc(text))}</p>`);return;}
   // For multi-line blocks, preserve separate dialogue lines where clear, while joining wrapped prose lines.
   const parts=text.split(/\s*\u241e\s*/);
-  out.push(`<p>${esc(text)}</p>`);
+  out.push(`<p>${formatInline(esc(text))}</p>`);
  }
  for(let raw of lines){
   const line=raw.trim().replace(/^#{1,4}\s+/, '');
@@ -198,7 +205,7 @@ function renderText(b){
   const pieces=line.split(/(?=(?:(?:제\s*)?[0-9０-９一二三四五六七八九十百천만]+\s*(?:장|화|절|부|편|막|권|회)\b|(?:프롤로그|에필로그|후일담|외전|번외편|특별편)\b|(?:CHAPTER|CH|PART|BOOK|VOLUME|EPISODE|Chapter|Part|Book|Volume|Episode)\s+[0-9０-９IVXLC]+))/);
   for(const piece0 of pieces){const piece=piece0.trim();if(!piece)continue;
    if(heading.test(piece)&&piece.length<100){emitBlock();out.push(`<h2>${esc(piece)}</h2>`)}
-   else if(dialogue.test(piece)&&piece.length<500){emitBlock();out.push(`<p class="dialogue">${esc(piece)}</p>`)}
+   else if(dialogue.test(piece)&&piece.length<500){emitBlock();out.push(`<p class="dialogue">${formatInline(esc(piece))}</p>`)}
    else block.push(piece);
   }
  }
@@ -217,7 +224,20 @@ function restorePos(){let p=current.pos||0;if(p>0){let ratio=p/Math.max(1,curren
 $('#reader').addEventListener('scroll',()=>{if($('#reader').classList.contains('open')){updateProgress();scheduleSave();showIsland()}},{passive:true});
 function scheduleSave(){clearTimeout(saveTimer);saveTimer=setTimeout(()=>{if(!current)return;let max=$('#reader').scrollHeight-$('#reader').clientHeight;current.pos=Math.round(Math.max(0,$('#reader').scrollTop)/Math.max(1,max)*current.text.length);current.updated=Date.now();persist()},500)}
 function updateProgress(){if(!current)return;let pct=Math.min(100,Math.round($('#reader').scrollTop/Math.max(1,$('#reader').scrollHeight-$('#reader').clientHeight)*100));$('#readerProgress').textContent=`읽기 ${pct}% · ${current.marks?.length||0}개 책갈피`}
-function applyPrefs(){let a=$('#article');a.style.fontFamily=`"${prefs.font}", "AppleMyungjo", Batang, serif`;a.style.fontSize=prefs.size+'px';a.style.letterSpacing=prefs.spacing+'px';$('#reader').classList.toggle('night',!!prefs.night);}
+function getFontStack(name){
+  const generic=['serif','sans-serif','monospace'];
+  const n=(name||'').trim();
+  if(generic.includes(n.toLowerCase())) return n.toLowerCase();
+  if(n==='Batang' || n==='AppleMyungjo') return `"${n}", "Noto Serif KR", serif`;
+  // 명조체 선택시는 Noto Serif KR 우선, 고딕 선택시는 Noto Sans KR 우선
+  if(n.toLowerCase().includes('sans')) return `"${n}", "Noto Sans KR", "Apple SD Gothic Neo", sans-serif`;
+  return `"${n}", "Noto Serif KR", "AppleMyungjo", Batang, serif`;
+}
+function formatInline(s){
+  // **bold** , __bold__ , <b>는 이미 esc된 상태이므로 변환
+  return s.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/__(.+?)__/g,'<strong>$1</strong>');
+}
+function applyPrefs(){let a=$('#article');a.style.fontFamily=getFontStack(prefs.font);a.style.fontSize=prefs.size+'px';a.style.letterSpacing=prefs.spacing+'px';a.style.fontWeight='400';$('#reader').classList.toggle('night',!!prefs.night);}
 function showIsland(){if(!$('#reader').classList.contains('open'))return;$('#island').classList.add('visible');clearTimeout(islandTimer);islandTimer=setTimeout(()=>$('#island').classList.remove('visible'),2600)}
 function hideIslandSoon(){clearTimeout(islandTimer);islandTimer=setTimeout(()=>$('#island').classList.remove('visible'),900)}
 document.addEventListener('mousemove',showIsland);document.addEventListener('touchstart',showIsland,{passive:true});document.addEventListener('keydown',e=>{if(e.key==='Escape'){if($('#modalBack').classList.contains('open'))closeModal();else if($('#reader').classList.contains('open'))closeReader()}});
